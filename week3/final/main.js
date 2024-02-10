@@ -2,56 +2,67 @@
 // Use the console to print the document title and the URL
 console.log(document.title)
 console.log(document.URL)
-
-
+console.log(document.lastModified)
+console.log(document.domain)
+console.log(document.cookie)
+console.log(document.forms)
+console.log(document.images)
+console.log(document.links)
 
 /*** Finding HTML Elements ***/
 //Select the element with the id = main. Store the returned value in a variable.
 const $main = document.getElementById('main')
+console.log($main)
 
 
 //Select an element using a CSS selector. Target the first link within the 'nav' element.
 const $navFirstOption = document.querySelector('nav a')
-
+console.log($navFirstOption)
 
 //Target all links in the nav element
 const $navLinks = document.querySelectorAll('nav a')
-
+console.log($navLinks)
 
 //Pattern CSS selectors
 //select all elements in the document whose href attribute value starts with "https"
 const $httpsLinks = document.querySelectorAll('[href^="https"]')
+console.log($navLinks)
 
 //select all elements in the document whose href attribute value contains the string "cdn"
 const $cdnLinks = document.querySelectorAll('[href*="cdn"]')
-
+console.log($cdnLinks)
 
 /*** Traversing the DOM  ***/
 // Return all child elements of the main node
 const $mainChildren = $main.children
+console.log($mainChildren)
 // Return the first child node(that is an element node) of main
 const $mainFirstChild = $main.firstElementChild
+console.log($mainFirstChild)
 // Return the next sibling element of main
 const $mainNextSibling = $main.nextElementSibling
+console.log($mainNextSibling)
 
 
 
 /*** Manipulating attributes */
 //Obtain the href attribute of $navFirstOption
 const navFirstOptionHref = $navFirstOption.getAttribute('href')
+console.log(navFirstOptionHref)
 
 //exception calling attributes as properties
-console.log( $main.className )
+console.log( $main.className)
 
 //setAttribute()    
 //Set the ID 'hero' on the first 'div' element inside the 'main' element.
 const $mainFirstChildDiv = $main.firstElementChild
 $mainFirstChildDiv.setAttribute('id', 'hero')
+console.log($mainFirstChildDiv)
 
 
 //Add 'text-bg-dark' class to the element with id hero; warning!
-// $mainFirstChildDiv.setAttribute('class', 'text-bg-dark')
-
+$mainFirstChildDiv.setAttribute('class', 'text-bg-dark')
+console.log($mainFirstChildDiv)
 
 //Add the 'href' attribute to the 'continue reading...' hero link; https://imdac.github.io/mtm6302/
 const $heroCTA = document.querySelector('#hero a')
@@ -60,18 +71,20 @@ $heroCTA.setAttribute('href', 'https://imdac.github.io/mtm6302/')
 
 //set the 'target' attribute of the link to '_blank'
 $heroCTA.setAttribute('target', '_blank')
+console.log($heroCTA)
 
-// console.log($heroCTA.getAttribute('class')); // text-white fw-bol
-// console.log($heroCTA.getAttribute('href')); // https://imdac.github.io/mtm6302/
-// console.log($heroCTA.getAttribute('target')); // _blank
+console.log($heroCTA.getAttribute('class')); // text-white fw-bol
+console.log($heroCTA.getAttribute('href')); // https://imdac.github.io/mtm6302/
+console.log($heroCTA.getAttribute('target')); // _blank
 
 //removeAttribute()
 //Remove the attribute 'target' from the 'continue reading...' link
 $heroCTA.removeAttribute('target')
+console.log($heroCTA.getAttribute('target')); // null
 
 
 /*** Manipulating classes ***/
-// console.log(   $hero.classList)      // ["p-4 p-md-5 mb-4 rounded position-relative"]
+// console.log($hero.classList)      // ["p-4 p-md-5 mb-4 rounded position-relative"]
 // Add class 'text-bg-dark' to the element with id 'hero'
 const $hero = document.querySelector('#hero')
 $hero.classList.add('text-bg-dark')
