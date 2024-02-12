@@ -84,18 +84,18 @@ console.log($heroCTA.getAttribute('target')); // null
 
 
 /*** Manipulating classes ***/
-// console.log($hero.classList)      // ["p-4 p-md-5 mb-4 rounded position-relative"]
+
 // Add class 'text-bg-dark' to the element with id 'hero'
 const $hero = document.querySelector('#hero')
 $hero.classList.add('text-bg-dark')
 
-// console.log($hero.classList)         // ["p-4 p-md-5 mb-4 rounded position-relative text-bg-dark"]
+console.log($hero.classList)         // ["p-4 p-md-5 mb-4 rounded position-relative text-bg-dark"]
 
 // Remove class
 // Remove the class 'text-bg-dark' from the element with id 'hero
 $hero.classList.remove('text-bg-dark')
 
-// console.log(element.classList)      // ["p-4 p-md-5 mb-4 rounded position-relative"]
+//console.log(element.classList)      // ["p-4 p-md-5 mb-4 rounded position-relative"]
 
 //Toggle class
 //Retreive the 'dark mode' button, and save it to $darkModeBtn
@@ -109,8 +109,8 @@ $darkModeBtn.addEventListener('click', function() {
 
 
 //contains() and boolean condition
-// console.log($hero.classList.contains('position-relative')) // true
-// console.log($hero.classList.contains('text-bg-dark'))      // false
+console.log($hero.classList.contains('position-relative')) // true
+console.log($hero.classList.contains('text-bg-dark'))      // false
 
 //blog data
 const blogs = [
