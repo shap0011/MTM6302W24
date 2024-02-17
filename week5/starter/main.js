@@ -61,5 +61,14 @@
 //Use a for...of and a for...in to display all the properties of every student from the 'students' array
 
 
+for (
+    const student // init - variable used to hold each item's value
+    of              // keyword 'of'
+    students // the iterable: array
+) { // Loop body: executed once in each  iteration
+    console.log(student)
+} // end of iteration
+
+
 
 /*** Practice ***/
