@@ -20,7 +20,10 @@ function createIDs(){
                     <span>${student.userName}</span>
                     </p>
                     <p>${student.email}</p>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                    <button class="btn btn-primary" type="button" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#exampleModal"
+                    data-index="${student.studentNumber - 1}">Edit</button>
                 </div>
                 <div class="ac-card-footer">
                     <img class="ac-logo" src="https://imdac.github.io/images/codepen/AC_WORDMARK_1C_WHT.png">
@@ -34,7 +37,8 @@ $studentList.innerHTML = htmlTemplates.join('')
 createIDs()
 
 /*** Week 10 ***/
-// 1. Create a HTML attribute to share the 'student number'. Use the html template.
+// 1. Create a HTML custom attribute to share the 'student number'. Use the html template.
+
 
 // 2. Add an event listener to all the 'ac-card' buttons. Use the shared 'student numer' to target the proper 'student object'
 
@@ -53,10 +57,38 @@ createIDs()
 
 /*** Event delegation */
 
+$studentList.addEventListener('click', function(event){
+ if(event.target.classList.contains('btn')){
+    console.log(event.target.dataset.index)
 
+    $studentForm.elements['email'].value = students[event.target.dataset.index].email
+    $studentForm.elements['userName'].value = students[event.target.dataset.index].userName
+
+    $studentForm.dataset.index = event.target.dataset.index
+ }
+})
 // 3. Use the event delegation to listen to the 'submit' event in the student details view (modal).
 
+$modalBody.addEventListener('submit', function(event){
+    event.preventDefault()
+    console.log('submit')
+    console.log(event.target.elements['email'].value)
+    console.log(event.target.elements['userName'].value)
 
+    students[event.target.dataset.index].email = event.target.elements['email'].value
+    students[event.target.dataset.index].userName = event.target.elements['userName'].value
+
+    // createIDs()
+})
+
+// $studentList.addEventListener('click', function(event){
+//     if(event.target.classList.contains('submit')){
+//        console.log(event.target.dataset.index)
+   
+//        $studentForm.elements['email'].value = students[event.target.dataset.index].email
+//        $studentForm.elements['userName'].value = students[event.target.dataset.index].userName
+//     }
+//    })
 
 
 
